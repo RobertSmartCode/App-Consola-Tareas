@@ -40,8 +40,6 @@ const preguntas = [
     }
 ];
 
-
-
 const inquirerMenu = async() => {
 
     console.clear();

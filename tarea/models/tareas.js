@@ -24,6 +24,13 @@ class Tareas {
     constructor() {
         this._listado = {};
     }
+    
+    borrarTarea( id = '' ) {
+
+        if ( this._listado[id] ) {
+            delete this._listado[id];
+        }
+    }
 
     cargarTareasFromArray( tareas = [] ) {
         
@@ -38,6 +45,8 @@ class Tareas {
         const tarea = new Tarea(desc);
         this._listado[tarea.id] = tarea;
     }
+
+
     listadoCompleto(){
 
         console.log();
@@ -51,6 +60,9 @@ class Tareas {
             console.log(`${idx} ${desc}::${estado}`);
         });
     }
+
+
+
     listarPendientesCompletadas( completadas = true ) {
 
         console.log();
@@ -65,7 +77,7 @@ class Tareas {
                 // mostrar completadas
                 if ( completadoEn ) {
                     contador += 1;
-                    console.log(`${ (contador + '.').green } ${ desc } :: ${ completadoEn.green }`);
+                    console.log(`${ (contador + '.').green } ${ desc } :: ${ completadoEn  }`);
                 }
             } else {
                 // mostrar pendientes
@@ -77,10 +89,30 @@ class Tareas {
 
         });     
 
-    }
+    } 
+
+    toggleCompletadas( ids = [] ) {
+
+        ids.forEach( id => {
+
+            const tarea = this._listado[id];
+            if ( !tarea.completadoEn ) {
+                tarea.completadoEn = new Date().toISOString()
+            }
+
+        });
+
+        this.listadoArr.forEach( tarea => {
+
+            if ( !ids.includes(tarea.id) ) {
+                this._listado[tarea.id].completadoEn = null;
+            }
+
+        });
 
 
-    }
+    } 
+}
 
 
 

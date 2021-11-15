@@ -4,7 +4,10 @@ const { guardarDB, leerDB } = require('./helpers/guardarArchivo');
 
 const { inquirerMenu, 
         pausa,
-        leerInput
+        leerInput,
+        listadoTareasBorrar,
+        confirmar,
+        mostrarListadoChecklist
         
 } = require('./helpers/inquirer');
 
