@@ -2,15 +2,13 @@ const Tarea = require('./tarea');
 
 /**
  *  _listado:
- *      {  'uuid-123712-123123-2: { id:12, desc:asd,completadoeEN:92231 }  },
+ *      {  'uuid-123712-123123-2: { id:12uuid-123712-123123-2, desc:asd,completadoeEN:92231 }  },
  */
 
 class Tareas {
 
-    _listado = {
-        'abc': 123
-    };
-
+    _listado = {}; //Esto no hace falta ponerlo en el constructor es donde se definen la propiedades
+    
     get listadoArr(){
         const listado = [];
         Object.keys(this._listado).forEach(key =>{

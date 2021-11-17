@@ -3,7 +3,7 @@ const fs = require('fs');
 const archivo = './db/data.json';
 
 const guardarDB = ( data ) => {
-    fs.writeFileSync( archivo, JSON.stringify(data) );
+    fs.writeFileSync( archivo, JSON.stringify(data) ); //data son objetos dentros de una arreglo JSON.stringify(data) lo convierte en string
 }
 
 
